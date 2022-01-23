@@ -1,0 +1,248 @@
+@import "reset";
+@import "variable";
+@import url('https://fonts.googleapis.com/css2?family=Luxurious+Roman&display=swap');
+@mixin article-style($margin,$bgcolor) {
+    margin: $margin;
+    background-color: $bgcolor;
+}
+article.art1{
+    @include article-style(10px 0, #353509 );
+}
+article.art2{
+    @include article-style(15px 0,#151818);
+}
+@mixin art-h4($align,$color,$padding) {
+   text-align: $align;
+   color: $color;
+   padding: $padding 
+}
+article.art1 h4{
+    @include art-h4(center,cyan,10px 0);
+}
+article.art2 h4{
+    @include art-h4(center,hotpink,20px 0);
+}
+@mixin para-style($padding,$color,$align) {
+    padding: $padding;
+    color: $color;
+    text-align: $align;
+}
+@mixin fontsize($value){
+    @if $value == small{
+        font-size: 12px;
+    }
+    @else if $value == medium{
+        font-size: 20px;
+    }
+    @else if $value == large{
+        font-size: 25px;
+    }
+    @else{
+        font-size: none;
+    }
+}
+article p{
+    @include para-style(10px 15px,#ffff ,justify );
+}
+header{
+    background: $header-bgcolor;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 0;
+}
+.logo{
+    margin-left: 40px;
+    color: crimson;
+}
+    nav{
+        text-align: right;
+    }
+        ul{
+            list-style-type: none;
+            margin-right: 30px;
+        }
+
+            li{
+                display: inline-block;
+                text-align: right;
+                margin-right: 15px;
+            }
+                 a{
+                    text-decoration: none;
+                    text-transform: capitalize;
+                    color: crimson;
+                    padding: 7px;
+                    border-radius: 9px;
+                    transition:  0.8s;
+                    font-weight: bold;
+                    @include fontsize(medium);
+                
+                }
+
+                a:hover {
+                    background-color: midnightblue;
+                    color: orange;
+                }
+#main-content{
+    background: $main-bgcolor;
+    padding: 20PX 30px;
+    font-size: $para-fontsize;
+}
+.header-toggle,.header-close{
+    display: none;
+}
+.btn{
+    border: none;
+    padding: 15px 30px;
+    cursor: pointer;
+    font-size: 20px;
+    color: white
+}
+.btn-download{
+    @extend .btn;
+    background-color: rgb(16, 87, 87);
+}
+.btn-learn-more{
+    @extend .btn;
+    background-color: rgb(255, 105, 143);
+    margin-left: 50px;
+}
+.btn-hover{
+    color: #88f51b;
+    text-decoration: underline;
+}
+.btn-download:hover,.btn-learn-more:hover{
+    @extend .btn-hover;
+}
+.button{
+    text-align: center;
+}
+[class*="col-"]{
+    float: left;
+}
+#card-wrapper {
+    margin: 0 auto;
+    background-color: #07b6b6;
+    padding: 50px;
+    margin-top: 20px;
+    border-radius: 0 0 15px 15px;
+}
+#card-wrapper::after{
+    content: " ";
+    clear: both;
+    display: table;
+}   
+@for $i from 1 through 12{
+     .col-#{$i}{
+         width: 100%/12 * $i;
+     }
+ }
+ @each $color in crimson, midnightblue,orangered{
+     .#{$color}-bgcolor{
+         background-color: $color;
+     }
+ }
+ .card{
+    max-width: 370px;
+    margin: auto 10px;
+    width: 100%;
+    box-sizing: border-box;
+    box-shadow: 1px 2px 4px black;
+    border-radius: 15px;
+ }
+.card img{
+    width: 100%;
+ }
+ .card-body{
+    color: blanchedalmond;
+    padding: 3px 5px;
+ }
+ .card-body .card-title{
+    text-align: center;
+    font-size: 22px;
+    font-weight: bolder;
+ }
+ .card p{
+    text-align: justify;
+    line-height: 25px;
+ }
+ .card:hover{
+    box-shadow: 10px 15px 20px rgb(51, 46, 46);
+ }
+footer{
+    background: $footer-bgcolor;
+    padding: 10px 0;
+    text-align: center;
+    color: aliceblue;
+}
+@media screen and (max-width:767px) {
+    .logo{
+        font-size: 20px;
+    }
+    .header-toggle{
+        display: inline;
+        color: crimson;
+        font-size: 30px;
+        margin-right: 5px;
+        cursor: pointer;
+    }
+    .header-toggle:hover{
+        border: 2px solid crimson;
+    }
+    .header-close{
+        position: absolute;
+        top: 2px;
+        right: 2px;
+        display: block;
+        font-size: 30px;
+        border-radius: 50%;
+        color: #ffffff;
+    }
+    .header-close:hover{
+        background-color: #ffffff;
+        color: midnightblue;
+    }    
+    nav{
+        position: fixed;
+        top: 0;
+        right: -100%;
+        height: 100vh;
+        width: 40%;
+        background-color: midnightblue;
+        z-index: 100;
+        transition: 0.2s;
+    }
+    #nav-menu ul li{
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 70px;
+    }
+    #nav-menu ul li a{
+        color: #ffffff;
+    }
+    #nav-menu ul li a:hover{
+        color: orange;
+    }
+    .show{
+          right: 0;
+    }
+    @for $i from 1 through 12{
+        .col-#{$i}{
+            width: 100%;
+            margin: 10px 0;
+        }
+ 
+}
+    .button{
+        display:block;
+        margin: 30px auto;
+    }
+    .button input{
+        display:block;
+        margin: 20px auto;
+    }
+}

@@ -1,0 +1,9 @@
+Sass @for Directive with To/through Keyword
+In Sass @for directive, the "to/through" keyword is used to specify the range form value to the value before value.
+
+Syntax:
+
+@for $var from <start> through/to <end>   
+Parameter explanation:
+
+$var: It specifies the name of the variable like $i.
