@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Genos&family=Lato&family=Poppins&family=Righteous&family=Saira+Condensed&display=swap');
+
+*,::before,::after{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Lato', sans-serif;
+}
+.container{
+    height: 94vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: lightcyan;
+}
+h1,p{
+   margin: 0;
+}
+a{
+    text-decoration: none;
+}
+.card img {
+    max-width: 100%;
+    height: auto;
+  }
+.card{
+    width: 320px;
+    height: 400px;
+    background-color: #152532;
+    padding: 65px 35px;
+    border-radius: 25px;
+    color: #908F91;
+    overflow-y: hidden;
+}
+.card-image{
+    position: absolute;
+    width: 260px;
+    filter: drop-shadow(5px 10px 15px rgba(8,9,13,.4));
+    border-radius: 90% 40% 35% 50%;
+}
+.card-data{
+    transform: translateY(210px);
+    text-align: center;
+}
+.card-title{
+    font-size: 23px;
+    color: #f5250d;
+    font-weight: bolder;
+    margin-bottom: 10px;
+}
+.card-price{
+    display: inline-block;
+    font-size: 20px;
+    font-weight: bolder;
+    margin-bottom: 25px;
+}
+.card-description{
+    font-size: 20px;
+    text-align: initial;
+    margin-bottom: 20px;
+    opacity: 0;
+}
+.card-button{
+    display: block;
+    width: max-content;
+    padding: 15px 28px;
+    font-size: 20px;
+    font-weight: 700;
+    background-color: #e0301c;
+    color: #ffffff;
+    border-radius: 10px;
+    opacity: 0;
+    transition: 0.2s;
+
+}
+.card-button:hover{
+    color: #a5a1aa;
+    background-color: #c24031;
+}
+.card-image,
+.card-data,
+.card-title,
+.card-price,
+.card-description{
+    transition: 0.2s;
+}
+.card:hover .card-image{
+    transform: translate(-35px,-85px) rotate(20deg);
+}
+.card:hover .card-data{
+    transform: translateY(90px);
+}
+.card:hover .card-title{
+    transform: translateX(-30px);
+}
+.card:hover .card-price{
+    transform: translateX(-105px);
+}
+.card:hover .card-description,
+.card:hover .card-button{
+    transition-delay: 0.2s;
+    opacity: 1;
+    transform: translateX(-18px);
+
+}
+footer p{
+    background: #013856;
+    color: #f5250d;
+    padding: 10px 0;
+    text-align: center;
+    width: 100%
+
+}  
